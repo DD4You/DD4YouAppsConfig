@@ -1,0 +1,2 @@
+include ':app', ':appsconfig'
+rootProject.name='DD4You Apps Config'

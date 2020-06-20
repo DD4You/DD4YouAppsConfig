@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/myRootView"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="in.dd4you.appsconfig.DD4YouMoveUpBehavior">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TextView"
+                />
+
+            <Button
+                android:id="@+id/check_sdcard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Check SD Card"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/check_app_folder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Check App Folder"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/create_app_folder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Create App Folder"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/check_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Check Password"
+                android:textAllCaps="false"/>
+            <Button
+                android:id="@+id/set_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Set Password"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/match_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Match Password"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/delete_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delete Password"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/more_apps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="More Apps"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/rate_us"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rate App"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/share_app"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Share App"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/follow_on_insta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Follow on Insta"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/contact_by_whatsapp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact By WhatsApp"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/contact_by_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact By Email"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/share_on_whatsapp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Share on WhatsApp"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/share_on_whatsapp_business"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Share on WhatsApp Business"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/subscribe_on_yt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Subscribe Youtube Channel"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/watch_on_yt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Watch on Youtube"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/check_internet_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Check Internet Connection"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/check_update_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Check Update"
+                android:textAllCaps="false"/>
+
+            <ImageView
+                android:id="@+id/test_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/dev_image_bg"/>
+
+            <Button
+                android:id="@+id/share_with_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Share with image"
+                android:textAllCaps="false"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
