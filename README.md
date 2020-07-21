@@ -6,8 +6,38 @@ Very usefull more than 36 methods for you. you can use all methodes single line 
 DD4YouAppsConfig is installed by adding the following dependency to your build.gradle(app) file:
 <pre>
 dependencies {  
-      implementation 'in.dd4you.appsconfig:appsconfig:1.2.3'  
+      implementation 'in.dd4you.appsconfig:appsconfig:1.3.3'  
 }
+</pre>
+
+## Constant Values version 1.3.3
+UPDATE_REQUEST_CODE  
+UPDATE_FLEXIBLE  
+UPDATE_IMMEDIATE  
+TimestampFormat1 - TimestampFormat8  
+DateFormat1 - DateFormat3  
+TimeFormat1 - TimeFormat4  
+DateTimeFormat1 - DateTimeFormat4  
+
+#How to use
+<pre>
+use any method or constant values by creating object Like below
+
+private DD4YouConfig dd4YouConfig;
+ @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        dd4YouConfig = new DD4YouConfig(this);
+   }
+   
+Use any method like below
+dd4YouConfig.methodName();
+
+Use any constant like below
+
+DD4YouConfig.Constant.TimestampFormat1
 </pre>
 
 ## int methods
@@ -45,7 +75,8 @@ dependencies {
 **.encryptToSHA384()**  new  
 **.encryptToSHA512()**  new  
 **.dd4youNumberFormat()** version 1.2.3  
-**.getTimeAgo()**  version 1.2.3  
+**.getTimeAgo()**  version 1.2.3 Support Only Unix Timestamp  
+**.getTimeAgo()**  version 1.3.3 Support All Timestamp  
 
 ## boolean methods
 **.isSDCardPresent()**  
@@ -60,6 +91,7 @@ dependencies {
 ## void methods
 **.moreApps()**  
 **.rateUs()**  
+**.rateUsDialog()**  version 1.3.3  
 **.shareApp()**  
 **.followOnInstagram()**  
 **.contactByWhatsApp()**  
@@ -69,6 +101,7 @@ dependencies {
 **.subscribeOnYoutube()**  
 **.watchOnYoutube()**  
 **.checkAppUpdate()**  
+**.checkInAppUpdate()**  version 1.3.3  
 **.shareWithImage()**  version 1.2.3  
 
 
