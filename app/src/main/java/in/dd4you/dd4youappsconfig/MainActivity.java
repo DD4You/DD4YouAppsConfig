@@ -4,9 +4,11 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -14,30 +16,34 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import in.dd4you.appsconfig.DD4YouConfig;
 import in.dd4you.appsconfig.DD4YouNetReceiver;
+import in.dd4you.appsconfig.DDPreferenceManager;
 
 public class MainActivity extends AppCompatActivity {
 
-    private DD4YouConfig dd4YouConfig;
     private DD4YouNetReceiver dd4YouNetReceiver;
-    private ViewGroup myRootView;
+    private DD4YouConfig dd4YouConfig;
+    private DDPreferenceManager preferenceManager;
 
+    private ViewGroup myRootView;
 
     private Button check_sdcard, check_app_folder, create_app_folder, check_password, set_password, match_password;
     private Button delete_password, more_apps, rate_us, share_app, follow_on_insta, contact_by_whatsapp, contact_by_email;
     private Button share_on_whatsapp, share_on_whatsapp_business, subscribe_on_yt, watch_on_yt, check_internet_btn, check_update_btn;
-    private Button share_with_image;
+    private Button share_with_image, rate_us_dialog, exit_dialog;
 
-    private ImageView test_image;
-
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         dd4YouConfig = new DD4YouConfig(this);
+        preferenceManager = new DDPreferenceManager(this, "dd4you");
+        //  DD4YouConfig.init(this);
         // Get Root View Current Activity
         myRootView = findViewById(R.id.myRootView);
 
@@ -64,8 +70,8 @@ public class MainActivity extends AppCompatActivity {
         check_internet_btn = findViewById(R.id.check_internet_btn);
         check_update_btn = findViewById(R.id.check_update_btn);
         share_with_image = findViewById(R.id.share_with_image);
-
-        test_image = findViewById(R.id.test_image);
+        rate_us_dialog = findViewById(R.id.rate_us_dialog);
+        exit_dialog = findViewById(R.id.exit_dialog);
 
         check_sdcard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -159,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
         share_app.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dd4YouConfig.shareApp("Share  Text here");
+                dd4YouConfig.shareApp("Share Text here");
             }
         });
 
@@ -211,6 +217,7 @@ public class MainActivity extends AppCompatActivity {
         check_internet_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (dd4YouConfig.isInternetConnectivity()) {
                     Toast.makeText(MainActivity.this, "Internet on", Toast.LENGTH_SHORT).show();
                 }else {
@@ -221,18 +228,35 @@ public class MainActivity extends AppCompatActivity {
         check_update_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               dd4YouConfig.checkAppUpdate();
+                //dd4YouConfig.checkAppUpdate();
+                dd4YouConfig.devInfo();
             }
         });
 
         share_with_image.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.Q)
             @Override
             public void onClick(View v) {
-                Bitmap bitmap = ((BitmapDrawable)test_image.getDrawable()).getBitmap();
-                dd4YouConfig.shareWithImage("Share with image test", bitmap);
-              //  dd4YouConfig.shareWithImage("testimage", "Share with image test", bitmap); // you can pass image name also
+                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.dev_image_bg);
+                dd4YouConfig.shareWithImage("Write your message...", bitmap);
+                //  DD4YouConfig.shareWithImage("testimage", "Share with image test", bitmap); // you can pass image name also
             }
         });
+
+        rate_us_dialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dd4YouConfig.rateUsDialog("Write title here...", "Write message here...");
+            }
+        });
+
+        exit_dialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dd4YouConfig.appExitDialog(R.drawable.ic_launcher_foreground,"Exit From App");
+            }
+        });
+
 
         String test = "Device Version: " + dd4YouConfig.getDeviceVersion()+
                 "\nApp Version Code: " + dd4YouConfig.getAppVersionCode()+
@@ -247,7 +271,7 @@ public class MainActivity extends AppCompatActivity {
                 "\nProduct: " + dd4YouConfig.getProduct() +
                 "\nAndroid Version: " + dd4YouConfig.getAndroidVersion() +
                 "\nApp Version Name: " + dd4YouConfig.getAppVersionName() +
-                "\nCurrent Date: " + dd4YouConfig.getCurrentDate("dd-mm-yyyy") +
+                "\nCurrent Date: " + dd4YouConfig.getCurrentDate(DD4YouConfig.Constant.TimestampFormat7) +
                 "\nCurrent Time: " + dd4YouConfig.getCurrentTime("hh:mm a") +
                 "\nString: abcd12345"+
                 "\nGet Start: "+ dd4YouConfig.getFromStartString("abcd12345",3)+
@@ -263,16 +287,35 @@ public class MainActivity extends AppCompatActivity {
                 "\nSHA-256: "+ dd4YouConfig.encryptToSHA256("123")+
                 "\nSHA-384: "+ dd4YouConfig.encryptToSHA384("123")+
                 "\nSHA-512: "+ dd4YouConfig.encryptToSHA512("123")+
-                "\nTime ago: "+ dd4YouConfig.getTimeAgo(1590143400)+
+                "\nTime ago Unix: "+ dd4YouConfig.getTimeAgo("1594222229")+
+                "\nGet Format Date: "+ dd4YouConfig.getDateTime("1594222229", DD4YouConfig.Constant.DateTimeFormat2, true)+
+                "\nGet Format Date: "+ dd4YouConfig.getDateTime("2020-08-13 05:18:20", DD4YouConfig.Constant.DateTimeFormat2, false)+
+                "\nTime ago: "+ dd4YouConfig.getTimeAgo("2020-08-13 05:18:20", DD4YouConfig.Constant.TimestampFormat1, false)+
                 "\nRandom Digits: "+ dd4YouConfig.generateRandomDigits()+
-                "\nDD4You Number Format: " + dd4YouConfig.dd4youNumberFormat(2000);
+                "\nDD4You Number Format: " + dd4YouConfig.dd4youNumberFormat(1400);
         textView.setText(test);
+        dd4YouConfig.checkInAppUpdate(DD4YouConfig.Constant.UPDATE_FLEXIBLE );
+
+        preferenceManager.putBoolean("boolean", true);
+        preferenceManager.putFloat("float", (float) 21.00);
+        preferenceManager.putInt("int", 2);
+        preferenceManager.putLong("long", 4);
+        preferenceManager.putString("string", "it's work");
+
+        Set<String> hash_Set = new HashSet<>();
+        hash_Set.add("Vinay");
+        hash_Set.add("Singh");
+        hash_Set.add("DD4You");
+
+        preferenceManager.putStringSet("stringSet", hash_Set);
+
+       // Log.d("TEST_APP", preferenceManager.getAllPreferences().toString());
     }
 
     private void registerBroadcastReceiver() {
         if (dd4YouNetReceiver == null)
             dd4YouNetReceiver = new DD4YouNetReceiver(myRootView,1000);
-            dd4YouNetReceiver.register(this.getApplicationContext());
+        dd4YouNetReceiver.register(this.getApplicationContext());
     }
     private void unregisterBroadcastReceiver() {
         if (dd4YouNetReceiver != null)
