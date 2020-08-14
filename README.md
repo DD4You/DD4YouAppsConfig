@@ -15,7 +15,7 @@ UPDATE_REQUEST_CODE
 UPDATE_FLEXIBLE  
 UPDATE_IMMEDIATE  
 TimestampFormat1 - TimestampFormat8  
-DateFormat1 - DateFormat3  
+DateFormat1 - DateFormat5  
 TimeFormat1 - TimeFormat4  
 DateTimeFormat1 - DateTimeFormat4  
 
