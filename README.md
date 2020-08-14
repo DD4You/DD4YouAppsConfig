@@ -38,6 +38,8 @@ dd4YouConfig.methodName();
 Use any constant like below
 
 DD4YouConfig.Constant.TimestampFormat1
+
+you can use DDPreferenceManager class
 </pre>
 
 ## int methods
@@ -100,7 +102,7 @@ DD4YouConfig.Constant.TimestampFormat1
 **.shareOnWhatsAppBusiness()**  
 **.subscribeOnYoutube()**  
 **.watchOnYoutube()**  
-**.checkAppUpdate()**  remove in version 1.3.5 
+**.checkAppUpdate()**  remove in version 1.3.5  
 **.checkInAppUpdate()**  version 1.3.3  
 **.shareWithImage()**  version 1.2.3  
 **.appExitDialog()**  version 1.3.5  
