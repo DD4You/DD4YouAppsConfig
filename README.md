@@ -6,7 +6,7 @@ Very usefull more than 36 methods for you. you can use all methodes single line 
 DD4YouAppsConfig is installed by adding the following dependency to your build.gradle(app) file:
 <pre>
 dependencies {  
-      implementation 'in.dd4you.appsconfig:appsconfig:1.3.3'  
+      implementation 'in.dd4you.appsconfig:appsconfig:1.3.5'  
 }
 </pre>
 
@@ -100,9 +100,11 @@ DD4YouConfig.Constant.TimestampFormat1
 **.shareOnWhatsAppBusiness()**  
 **.subscribeOnYoutube()**  
 **.watchOnYoutube()**  
-**.checkAppUpdate()**  
+**.checkAppUpdate()**  remove in version 1.3.5 
 **.checkInAppUpdate()**  version 1.3.3  
 **.shareWithImage()**  version 1.2.3  
+**.appExitDialog()**  version 1.3.5  
+**.getDateTime()**  version 1.3.5
 
 
 ## Date Format List
