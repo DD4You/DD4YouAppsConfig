@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -18,6 +20,7 @@ import android.widget.Toast;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 import in.dd4you.appsconfig.DD4YouConfig;
 import in.dd4you.appsconfig.DD4YouNetReceiver;
@@ -35,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
     private Button delete_password, more_apps, rate_us, share_app, follow_on_insta, contact_by_whatsapp, contact_by_email;
     private Button share_on_whatsapp, share_on_whatsapp_business, subscribe_on_yt, watch_on_yt, check_internet_btn, check_update_btn;
     private Button share_with_image, rate_us_dialog, exit_dialog;
+
+    private ImageView test_image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
         share_with_image = findViewById(R.id.share_with_image);
         rate_us_dialog = findViewById(R.id.rate_us_dialog);
         exit_dialog = findViewById(R.id.exit_dialog);
+
+        test_image = findViewById(R.id.test_image);
 
         check_sdcard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -237,7 +244,8 @@ public class MainActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.Q)
             @Override
             public void onClick(View v) {
-                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.dev_image_bg);
+                // Bitmap bitmap = ((BitmapDrawable)test_image.getDrawable()).getBitmap(); // get bitmap from imageView
+                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.dev_image_bg); //  get bitmap from resource
                 dd4YouConfig.shareWithImage("Write your message...", bitmap);
                 //  DD4YouConfig.shareWithImage("testimage", "Share with image test", bitmap); // you can pass image name also
             }
@@ -246,19 +254,21 @@ public class MainActivity extends AppCompatActivity {
         rate_us_dialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dd4YouConfig.rateUsDialog("Write title here...", "Write message here...");
+                dd4YouConfig.rateUsDialog(R.drawable.dd4you_logo, "Write title here...", "Write message here...");
             }
         });
 
         exit_dialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dd4YouConfig.appExitDialog(R.drawable.ic_launcher_foreground,"Exit From App");
+                dd4YouConfig.appExitDialog(R.drawable.ic_launcher_background,"Do you want to exit app?");
             }
         });
 
 
-        String test = "Device Version: " + dd4YouConfig.getDeviceVersion()+
+        String test = "Android SDK Version: " + dd4YouConfig.getAndroidSDKVersion()+
+                "\nAndroid Version Code: " + dd4YouConfig.getAndroidVersionCode()+
+                "\nAndroid Version: " + dd4YouConfig.getAndroidVersion()+
                 "\nApp Version Code: " + dd4YouConfig.getAppVersionCode()+
                 "\nCurrent Time Stamp: " + dd4YouConfig.getCurrentTimestamp()+
                 "\nDevice Manufacturer: " + dd4YouConfig.getDeviceManufacturer()+
@@ -269,7 +279,6 @@ public class MainActivity extends AppCompatActivity {
                 "\nType: " + dd4YouConfig.getType() +
                 "\nHost: " + dd4YouConfig.getHost() +
                 "\nProduct: " + dd4YouConfig.getProduct() +
-                "\nAndroid Version: " + dd4YouConfig.getAndroidVersion() +
                 "\nApp Version Name: " + dd4YouConfig.getAppVersionName() +
                 "\nCurrent Date: " + dd4YouConfig.getCurrentDate(DD4YouConfig.Constant.TimestampFormat7) +
                 "\nCurrent Time: " + dd4YouConfig.getCurrentTime("hh:mm a") +
@@ -288,12 +297,14 @@ public class MainActivity extends AppCompatActivity {
                 "\nSHA-384: "+ dd4YouConfig.encryptToSHA384("123")+
                 "\nSHA-512: "+ dd4YouConfig.encryptToSHA512("123")+
                 "\nTime ago Unix: "+ dd4YouConfig.getTimeAgo("1594222229")+
-                "\nGet Format Date: "+ dd4YouConfig.getDateTime("1594222229", DD4YouConfig.Constant.DateTimeFormat2, true)+
-                "\nGet Format Date: "+ dd4YouConfig.getDateTime("2020-08-13 05:18:20", DD4YouConfig.Constant.DateTimeFormat2, false)+
                 "\nTime ago: "+ dd4YouConfig.getTimeAgo("2020-08-13 05:18:20", DD4YouConfig.Constant.TimestampFormat1, false)+
+                "\nGet Format Date Unix: "+ dd4YouConfig.getDateTime("1594222229", DD4YouConfig.Constant.DateTimeFormat2, true)+
+                "\nGet Format Date: "+ dd4YouConfig.getDateTime("2020-08-13 05:18:20", DD4YouConfig.Constant.DateTimeFormat2, false)+
                 "\nRandom Digits: "+ dd4YouConfig.generateRandomDigits()+
                 "\nDD4You Number Format: " + dd4YouConfig.dd4youNumberFormat(1400);
         textView.setText(test);
+        textView.setTextColor(dd4YouConfig.getRandomRGBColorCode());
+       // textView.setBackgroundColor(Color.parseColor(dd4YouConfig.getRandomHexColorCode()));
         dd4YouConfig.checkInAppUpdate(DD4YouConfig.Constant.UPDATE_FLEXIBLE );
 
         preferenceManager.putBoolean("boolean", true);
@@ -309,7 +320,25 @@ public class MainActivity extends AppCompatActivity {
 
         preferenceManager.putStringSet("stringSet", hash_Set);
 
-       // Log.d("TEST_APP", preferenceManager.getAllPreferences().toString());
+        /*Log.d("TEST_APP", preferenceManager.getBoolean("boolean").toString());
+        Log.d("TEST_APP", preferenceManager.getFloat("float").toString());
+        Log.d("TEST_APP", String.valueOf(preferenceManager.getInt("int")));
+        Log.d("TEST_APP", preferenceManager.getLong("long").toString());
+        Log.d("TEST_APP", preferenceManager.getString("string"));
+        Log.d("TEST_APP", preferenceManager.getStringSet("stringSet").toString());
+        Log.d("TEST_APP", preferenceManager.getAllPreferences().toString());*/
+
+        Log.d("TEST_APP", dd4YouConfig.getFirstAndLastLetter("Vinay Singh"));
+        Log.d("TEST_APP", dd4YouConfig.getFirstLetterOfEachWord("I am from India"));
+        Log.d("TEST_APP", dd4YouConfig.convertToSlug("I am from India").toLowerCase());
+
+        //verify strong password
+        String password = "abcd";
+        if (DD4YouConfig.DDRegex.WEAK_PASSWORD.matcher(password).matches()){
+            Log.d("TEST_APP", "Valid password");
+        }else {
+            Log.d("TEST_APP", "weak password");
+        }
     }
 
     private void registerBroadcastReceiver() {

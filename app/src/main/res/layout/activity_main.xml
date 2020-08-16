@@ -176,6 +176,13 @@
                 android:layout_height="wrap_content"
                 android:text="Show Exit dialog"
                 android:textAllCaps="false"/>
+
+            <ImageView
+                android:id="@+id/test_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/dev_image_bg"/>
         </LinearLayout>
     </ScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
