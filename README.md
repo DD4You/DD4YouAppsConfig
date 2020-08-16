@@ -20,27 +20,29 @@ Maven
 
 
 Ivy
-<dependency org='in.dd4you.appsconfig' name='appsconfig' rev='1.4.5'>
-  <artifact name='appsconfig' ext='pom' />
-</dependency>
+<code>
+	<dependency org='in.dd4you.appsconfig' name='appsconfig' rev='1.4.5'>
+		<artifact name='appsconfig' ext='pom' />
+	</dependency>
+<code>
 </pre>
 
 ## Constant Values version 1.3.3
-UPDATE_REQUEST_CODE  
-UPDATE_FLEXIBLE  
-UPDATE_IMMEDIATE  
-TimestampFormat1 - TimestampFormat8  
-DateFormat1 - DateFormat5  
-TimeFormat1 - TimeFormat4  
-DateTimeFormat1 - DateTimeFormat4  
+**UPDATE_REQUEST_CODE**  
+**UPDATE_FLEXIBLE**  
+**UPDATE_IMMEDIATE**  
+**TimestampFormat1** - **TimestampFormat8**  
+**DateFormat1** - **DateFormat5**  
+**TimeFormat1** - **TimeFormat4**  
+**DateTimeFormat1** - **DateTimeFormat4**  
 
 ## Constant Regular Expressions Values version 1.4.5
-WEAK_PASSWORD  (any letter and 4 characters and no white spaces)  
-WEAK_PASSWORD_2X  (any letter and 8 characters and no white spaces)  
-NORMAL_PASSWORD  (any letter and at least 1 special character, 8 characters and no white spaces)  
-NORMAL_PASSWORD_2X  (any letter and at least 1 special character, 16 characters and no white spaces)  
-STRONG_PASSWORD  (at least 1 digit, at least 1 lower and 1 upper case. any letter, at least 1 special character, at least 8 characters and no white spaces)  
-VERY_STRONG_PASSWORD  (at least 1 digit, 1 lower case and 1 upper case. any letter, at least 1 special character, at least 16 characters and no white spaces)
+**WEAK_PASSWORD**  (any letter and 4 characters and no white spaces)  
+**WEAK_PASSWORD_2X**  (any letter and 8 characters and no white spaces)  
+**NORMAL_PASSWORD**  (any letter and at least 1 special character, 8 characters and no white spaces)  
+**NORMAL_PASSWORD_2X**  (any letter and at least 1 special character, 16 characters and no white spaces)  
+**STRONG_PASSWORD**  (at least 1 digit, at least 1 lower and 1 upper case. any letter, at least 1 special character, at least 8 characters and no white spaces)  
+**VERY_STRONG_PASSWORD**  (at least 1 digit, 1 lower case and 1 upper case. any letter, at least 1 special character, at least 16 characters and no white spaces)
 
 #How to use
 <pre>
