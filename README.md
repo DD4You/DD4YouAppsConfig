@@ -90,6 +90,7 @@ you can use DDPreferenceManager class
 **.dd4youNumberFormat()** version 1.2.3  
 **.getTimeAgo()**  version 1.2.3 Support Only Unix Timestamp  
 **.getTimeAgo()**  version 1.3.3 Support All Timestamp  
+**.getDateTime()**  version 1.3.5  
 **.getFirstAndLastLetter()** version 1.4.5  
 **.getFirstLetterOfEachWord()** version 1.4.5  
 **.getAndroidVersionCode()** version 1.4.5  
@@ -122,7 +123,6 @@ you can use DDPreferenceManager class
 **.checkInAppUpdate()**  version 1.3.3  
 **.shareWithImage()**  version 1.2.3  
 **.appExitDialog()**  version 1.3.5  
-**.getDateTime()**  version 1.3.5
 
 
 ## Date Format List
