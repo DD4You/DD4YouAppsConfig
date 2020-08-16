@@ -3,8 +3,8 @@ Very usefull more than 36 methods for you. you can use all methodes single line 
 
 
 ## Installation
-<pre>
 DD4YouAppsConfig is installed by adding the following dependency to your build.gradle(app) file:
+<pre>
 dependencies {  
       implementation 'in.dd4you.appsconfig:appsconfig:1.4.5'  
 }
