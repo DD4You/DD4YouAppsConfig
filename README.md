@@ -4,27 +4,10 @@ Very usefull more than 36 methods for you. you can use all methodes single line 
 
 ## Installation
 <pre>
-Gradle
 DD4YouAppsConfig is installed by adding the following dependency to your build.gradle(app) file:
 dependencies {  
       implementation 'in.dd4you.appsconfig:appsconfig:1.4.5'  
 }
-
-Maven
-<dependency>
-  <groupId>in.dd4you.appsconfig</groupId>
-  <artifactId>appsconfig</artifactId>
-  <version>1.4.5</version>
-  <type>pom</type>
-</dependency>
-
-
-Ivy
-<code>
-	<dependency org='in.dd4you.appsconfig' name='appsconfig' rev='1.4.5'>
-		<artifact name='appsconfig' ext='pom' />
-	</dependency>
-<code>
 </pre>
 
 ## Constant Values version 1.3.3
