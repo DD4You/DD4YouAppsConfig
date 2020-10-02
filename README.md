@@ -1,5 +1,10 @@
 # DD4YouAppsConfig
-Very usefull more than 36 methods for you. you can use all methodes single line of code
+
+[ ![Download](https://api.bintray.com/packages/dd4you/DD4YouAppsConfig/in.dd4you.appsconfig/images/download.svg) ](https://bintray.com/dd4you/DD4YouAppsConfig/in.dd4you.appsconfig/_latestVersion)
+[![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg?style=flat-square)](https://www.apache.org/licenses/LICENSE-2.0.html)
+
+
+Very usefull bundle of methods for you. you can use all methodes single line of code
 
 
 ## Installation
