@@ -3,12 +3,12 @@ Very usefull more than 36 methods for you. you can use all methodes single line 
 
 
 ## Installation
-DD4YouAppsConfig is installed by adding the following dependency to your build.gradle(app) file:
-<pre>
+Add the dependency to your module build.gradle:
+```java
 dependencies {  
-      implementation 'in.dd4you.appsconfig:appsconfig:1.4.5'  
+      implementation 'in.dd4you.appsconfig:appsconfig:1.4.6'  
 }
-</pre>
+```
 
 ## Constant Values version 1.3.3
 **UPDATE_REQUEST_CODE**  
@@ -28,7 +28,7 @@ dependencies {
 **VERY_STRONG_PASSWORD**  (at least 1 digit, 1 lower case and 1 upper case. any letter, at least 1 special character, at least 16 characters and no white spaces)
 
 #How to use
-<pre>
+```java
 use any method or constant values by creating object Like below
 
 private DD4YouConfig dd4YouConfig;
@@ -49,7 +49,7 @@ DD4YouConfig.Constant.TimestampFormat1
 DD4YouConfig.DDRegex.NORMAL_PASSWORD  
 
 you can use DDPreferenceManager class
-</pre>
+```
 
 ## int methods
 **.getDeviceVersion()**  Rename to **.getAndroidSDKVersion()**  version 1.4.5  
@@ -145,19 +145,28 @@ a = am/pm example 11 am or 10 pm
 2020-03-31  = yyyy-MM-dd  
 
 
-# LICENSE
-<pre>
-	          Copyright 2020 DD4You.in  
-            
-   Licensed under the Apache License, Version 2.0 (the "License");  
-   you may not use this file except in compliance with the License.  
-   You may obtain a copy of the License at  
+# Contribution
 
-     http://www.apache.org/licenses/LICENSE-2.0  
 
-   Unless required by applicable law or agreed to in writing, software  
-   distributed under the License is distributed on an "AS IS" BASIS,  
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  
-   See the License for the specific language governing permissions and  
-   limitations under the License.
-</pre>
+Please fork repository and contribute using pull requests.
+
+Any contributions, large or small, major features, bug fixes, additional language translations, unit/integration tests are welcomed and appreciated but will be thoroughly reviewed and discussed.
+
+
+
+# License
+
+    Copyright 2020 DD4You.in
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
